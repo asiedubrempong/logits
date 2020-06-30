@@ -143,7 +143,8 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#Let's-begin-with-the-gradient">Let&#39;s begin with the gradient </a></li>
-<li class="toc-entry toc-h2"><a href="#Reviewing-gradients">Reviewing gradients </a>
+<li class="toc-entry toc-h2"><a href="#Reviewing-gradients">Reviewing gradients </a></li>
+<li class="toc-entry toc-h2"><a href="#Directional-derivative">Directional derivative </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Resources">Resources </a></li>
 </ul>
@@ -269,8 +270,24 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The problem with partial derivatives is that they only tell us how things would change if we move in only one direction. Partial derivatives are <code>partial</code> because neither of them tells us the full story of how our function $f(x,y)$ changes when it's inputs changes. However, we do not only want to know how things change when we move in either the $x$ or $y$ direction, we want to know how much things would change if we move in any arbitrary direction within the input space.</p>
-<p>That's exactly what <code>directional derivatives</code> are for. The directional derivative in a direction say $\vec{w}$ tells us how much the output of the function would change if we move a slight nudge in the direction of the vector $\vec{w}$. The directional derivative is found by taking the <code>dot product</code> of the gradient of the function and $\vec{w}$ ie. the direction in which we want to move.</p>
+<p>The problem with partial derivatives is that they only tell us how things would change if we move in only one direction. Partial derivatives are <code>partial</code> because neither of them tells us the full story of how our function $f(x,y)$ changes when it's inputs changes. However, we do not only want to know how things change when we move in either the $x$ or $y$ direction, we want to know how much things would change if we move in any arbitrary direction within the input space. That's exactly what <code>directional derivatives</code> are for.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Directional-derivative">
+<a class="anchor" href="#Directional-derivative" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directional derivative<a class="anchor-link" href="#Directional-derivative"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The directional derivative in a direction say $\vec{w}$ tells us how much the output of the function would change if we move a slight nudge in the direction of the vector $\vec{w}$. The directional derivative is found by taking the <code>dot product</code> of the gradient of the function and $\vec{w}$ ie. the direction in which we want to move.</p>
 $$\nabla_\vec{w} f=\nabla f \cdot \vec{w}$$<p></p>
 
 </div>
@@ -279,7 +296,7 @@ $$\nabla_\vec{w} f=\nabla f \cdot \vec{w}$$<p></p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If $\vec{w}=\begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$, then the directional derivative, $$\nabla_\vec{w} f $$ is equal to $\begin{bmatrix} 2xy \\ x^2 \end{bmatrix} \cdot \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = 2xy(w_1) + x^2(w_2)$</p>
+<p>If $\vec{w}=\begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$, then the directional derivative, $\nabla_\vec{w} f $ is equal to $\begin{bmatrix} 2xy \\ x^2 \end{bmatrix} \cdot \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = 2xy(w_1) + x^2(w_2)$</p>
 <p>Another way to look at this is to consider that in our input plane (ie. the x,y plane), any point or direction in this plane can be thought of as a combination of movements in the $x$ and $y$ directions.</p>
 <p><img src="/logits/images/copied_from_nb/../images/backprop/two.png" alt=""></p>
 <p>In the image above, $\vec{w}=\begin{bmatrix} 3 \\ 5 \end{bmatrix}$ is combination of 3 steps in the $x$ directions and 5 steps in the $y$ direction. So intuitively, taking a step along some arbitrary direction causes a change along the x-axis as well as along the y-axis. Taking the dot product for the directional derivative sums the changes along the x and y axis.</p>
@@ -292,7 +309,6 @@ $$\nabla_\vec{w} f=\nabla f \cdot \vec{w}$$<p></p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So now we have directional derivatives which are essentially a generalization of partial derivatives to deal with any arbitrary direction in our input plane. When training neural networks, the problem we seek to solve is that: given that we are at a point say <code>(2, 3)</code> which corresponds to a loss (the output of our function) of <code>t</code>, we want to know the <strong>direction</strong> that would result in the greatest increase in our loss? Once we know this <strong>direction</strong> we take a step in the opposite <strong>direction</strong> which would lead to the greatest reduction in the loss. Notice that I'm placing an intentional emphasis on the word <strong>direction</strong>. We are looking for the best direction and lucky enough we already have a tool that gives a measure of how good (or bad) a particular direction is, which as you may have guessed is the <code>directional derivative</code>.</p>
 <p>With directional derivatives, one way we could solve this problem is to find the directional derivative of all possible directions in which we could move. The best direction would be the direction with the largest directional derivative. But that would be too slow to compute, think about the number of possible directions in which we could move, the list is endless. However, the idea is good, we just need a simpler way to find the direction with the maximum directional derivative.</p>
-<p>Our objective now is to find:</p>
 
 </div>
 </div>
@@ -300,6 +316,7 @@ $$\nabla_\vec{w} f=\nabla f \cdot \vec{w}$$<p></p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Our objective now is to find:</p>
 <p>
 $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
 </p>
