@@ -254,6 +254,7 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's consider the function: $f(x,y)=x^2y$. The partial derivative with respect to $x$, $\frac{\partial f}{\partial x}$ is $2xy$, ie. we keep the $y$ as a constant and differentiate the whole term. Likewise the partial derivative with respect to $x$, $\frac{\partial f}{\partial y}$ is $x^2$.</p>
 <p>Rembering that the gradient packs together all the partial derivative into a vector, the gradient of this function would be: $$\nabla f=\begin{bmatrix} 2xy \\ x^2 \end{bmatrix}$$</p>
+<p>At point <code>(2, 3)</code>, the gradient would be $\nabla f=\begin{bmatrix} 12 \\ 4 \end{bmatrix}$. So a slight nudge purely in the <code>x</code> direction would cause a change by a factor of <code>12</code> in the output of the function while a similar change in the <code>y</code> direction would change the output of the function by a factor of <code>4</code>.</p>
 
 </div>
 </div>
@@ -296,8 +297,23 @@ $$\nabla_\vec{w} f=\nabla f \cdot \vec{w}$$<p></p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If $\vec{w}=\begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$, then the directional derivative, $\nabla_\vec{w} f $ is equal to $\begin{bmatrix} 2xy \\ x^2 \end{bmatrix} \cdot \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = 2xy(w_1) + x^2(w_2)$</p>
+<p>If $\vec{w}=\begin{bmatrix} 3 \\ 5 \end{bmatrix}$, then the directional derivative:
+
+$$\nabla_\vec{w}f = \begin{bmatrix} 2xy \\ x^2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\ 5 \end{bmatrix} = 6xy + 5x^2$$
+</p>
+<p>Evaluating the directional derivative at the point <code>(2,3)</code>:
+
+$$\nabla_\vec{w}f = 36 + 20 = 56$$
+</p>
+<p>What this means is that, given that we are at point <code>(2, 3)</code> in our input plane, taking a tiny step in the direction of the vector <code>(3, 5)</code> wo</p>
 <p>Another way to look at this is to consider that in our input plane (ie. the x,y plane), any point or direction in this plane can be thought of as a combination of movements in the $x$ and $y$ directions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/logits/images/copied_from_nb/../images/backprop/two.png" alt=""></p>
 <p>In the image above, $\vec{w}=\begin{bmatrix} 3 \\ 5 \end{bmatrix}$ is combination of 3 steps in the $x$ directions and 5 steps in the $y$ direction. So intuitively, taking a step along some arbitrary direction causes a change along the x-axis as well as along the y-axis. Taking the dot product for the directional derivative sums the changes along the x and y axis.</p>
 
