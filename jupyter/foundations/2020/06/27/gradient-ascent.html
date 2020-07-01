@@ -166,7 +166,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The backpropagation algorithm is one of the key ingredients for the training of neural networks, but it's also probably the most difficult concept to grasp in understanding how things really work. At least in my own experience, it's been the one thing that I've struggled to gain a deep understanding of. After juggling between a plethora of materials on the subject, I got my own eureka moment and the pieces fell into place. Like me you may also be self-taught through online courses and may have done a couple of projects but you still feel that twinge of <code>half-knowledge</code>, of only vaguely understanding what is actually going on when you are training neural networks (or any other maching learning model).</p>
+<p>The backpropagation algorithm is one of the key ingredients for the training of neural networks, but it's also probably the most difficult concept to grasp in understanding how things really work. At least in my own experience, it's been the one thing that I've struggled to gain a deep understanding of. After juggling between a plethora of materials on the subject, I got my own eureka moment and the pieces fell into place. Like me, you may also be self-taught through online courses and may have done a couple of projects but you still feel that twinge of <code>half-knowledge</code>, of only vaguely understanding what is actually going on when you are training neural networks (or any other machine learning model).</p>
 
 </div>
 </div>
@@ -174,7 +174,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this blogpost, I would be letting you in on the intuition that I've developed, hoping that you would build on this to develop an even better understanding of this all important concept. I also provide links to the resources that have been of great help to me.</p>
+<p>In this blog post, I would be letting you in on the intuition that I've developed, hoping that you would build on this to develop an even better understanding of this all-important concept. I also provide links to the resources that have been of great help to me.</p>
 
 </div>
 </div>
@@ -209,7 +209,7 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The gradient is just a vector containing all the partial derivatives of a function. Hence the key idea here is really the concept of <code>partial derivatives</code>. Partial derivatives tell us how much a function would change when we keep all but one of it's input variables constant and move a slight nudge in the direction of the one variable that is not fixed.</p>
+<p>The gradient is just a vector containing all the partial derivatives of a function. Hence the key idea here is really the concept of <code>partial derivatives</code>. Partial derivatives tell us how much a function would change when we keep all but one of its input variables constant and move a slight nudge in the direction of the one variable that is not fixed.</p>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For our two-variable case, the partial derivative tells us how much the output of the function would change if we keep say the $y$ variable constant and move a slight nudge in the $x$ direction and vice versa.</p>
+<p>For our two-variable case, the partial derivative tells us how much the output of the function would change if we keep the $y$ variable constant and move a slight nudge in the $x$ direction and vice versa.</p>
 
 </div>
 </div>
@@ -242,7 +242,7 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We are at the point <code>(2, 3)</code> in our input space which corresponds to a particular point <code>t</code> in the ouput plane, that is the output of our function is <code>t</code> for an input of <code>(2, 3)</code>. The partial derivative with respect to $x$ tells us how much change would result in the output if we keep $y$ fixed at <code>3</code> and move slightly in the $x$ direction. Simarly, the partial derivative with respect to $y$ measures the resulting change in output when $x$ is fixed at <code>2</code> and we move a little nudge in the $y$ direction.</p>
+<p>We are at the point <code>(2, 3)</code> in our input space which corresponds to a particular point <code>t</code> in the output plane, that is the output of our function is <code>t</code> for an input of <code>(2, 3)</code>. The partial derivative with respect to $x$ tells us how much change would result in the output if we keep $y$ fixed at <code>3</code> and move slightly in the $x$ direction. Similarly, the partial derivative with respect to $y$ measures the resulting change in output when $x$ is fixed at <code>2</code> and we move a little nudge in the $y$ direction.</p>
 
 </div>
 </div>
@@ -250,8 +250,8 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's consider the function: $f(x,y)=x^2y$. The partial derivative with respect to $x$, $\frac{\partial f}{\partial x}$ is $2xy$, ie. we keep the $y$ as a constant and differentiate the whole term. Likewise the partial derivative with respect to $x$, $\frac{\partial f}{\partial y}$ is $x^2$.</p>
-<p>Rembering that the gradient packs together all the partial derivative into a vector, the gradient of this function would be: $$\nabla f=\begin{bmatrix} 2xy \\ x^2 \end{bmatrix}$$</p>
+<p>Let's consider the function: $f(x,y)=x^2y$. The partial derivative with respect to $x$, $\frac{\partial f}{\partial x}$ is $2xy$, ie. we keep the $y$ as a constant and differentiate the whole term. Likewise, the partial derivative with respect to $x$, $\frac{\partial f}{\partial y}$ is $x^2$.</p>
+<p>Remembering that the gradient packs together all the partial derivative into a vector, the gradient of this function would be: $$\nabla f=\begin{bmatrix} 2xy \\ x^2 \end{bmatrix}$$</p>
 <p>At point <code>(2, 3)</code>, the gradient would be $\nabla f=\begin{bmatrix} 12 \\ 4 \end{bmatrix}$. So a slight nudge purely in the <code>x</code> direction would cause a change by a factor of <code>12</code> in the output of the function while a similar change in the <code>y</code> direction would change the output of the function by a factor of <code>4</code>.</p>
 
 </div>
@@ -269,7 +269,7 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The problem with partial derivatives is that they only tell us how things would change if we move in only one direction. Partial derivatives are <code>partial</code> because neither of them tells us the full story of how our function $f(x,y)$ changes when it's inputs changes. However, we do not only want to know how things change when we move in either the $x$ or $y$ direction, we want to know how much things would change if we move in any arbitrary direction within the input space. That's exactly what <code>directional derivatives</code> are for.</p>
+<p>The problem with partial derivatives is that they only tell us how things would change if we move in only one direction. Partial derivatives are <code>partial</code> because neither of them tells us the full story of how our function $f(x,y)$ changes when it's inputs changes. However, we do not only want to know how things change when we move in either the $x$ or $y$ direction, but we also want to know how much things would change if we move in any arbitrary direction within the input space. That's exactly what <code>directional derivatives</code> are for.</p>
 
 </div>
 </div>
@@ -303,7 +303,7 @@ $$\nabla_\vec{w}f = \begin{bmatrix} 2xy \\ x^2 \end{bmatrix} \cdot \begin{bmatri
 
 $$\nabla_\vec{w}f = 36 + 20 = 56$$
 </p>
-<p>What this means is that, given that we are at point <code>(2, 3)</code> in our input plane, taking a tiny step in the direction of the vector <code>(3, 5)</code> would change the ouput of our function by a factor of <code>56</code>.</p>
+<p>What this means is that given that we are at the point <code>(2, 3)</code> in our input plane, taking a tiny step in the direction of the vector <code>(3, 5)</code> would change the output of our function by a factor of <code>56</code>.</p>
 <p>Another way to look at this is to consider that in our input plane (ie. the x,y plane), any point or direction in this plane can be thought of as a combination of movements in the $x$ and $y$ directions.</p>
 
 </div>
@@ -313,7 +313,7 @@ $$\nabla_\vec{w}f = 36 + 20 = 56$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/logits/images/copied_from_nb/../images/backprop/two.png" alt=""></p>
-<p>In the image above, $\vec{w}=\begin{bmatrix} 3 \\ 5 \end{bmatrix}$ is combination of 3 steps in the $x$ directions and 5 steps in the $y$ direction. So intuitively, taking a step along some arbitrary direction causes a change along the x-axis as well as along the y-axis. Taking the dot product for the directional derivative sums the changes along the x and y axis.</p>
+<p>In the image above, $\vec{w}=\begin{bmatrix} 3 \\ 5 \end{bmatrix}$ is a combination of 3 steps in the $x$ direction and 5 steps in the $y$ direction. So intuitively, taking a step along some arbitrary direction causes a change along the x-axis as well as along the y-axis. Taking the dot product for the directional derivative sums the changes along the x and y-axis.</p>
 
 </div>
 </div>
@@ -343,14 +343,14 @@ $$\nabla_\vec{w}f = 36 + 20 = 56$$
 <p>
 $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
 </p>
-<p>Notice that the vectors in the equation above have a magnitude or length of 1. In a sense this ensures that we don't end up picking the wrong vector just because it has a larger magnitude than the rest and hence would maximize the dot product even though it's pointing in the wrong direction.</p>
-<p>The directional derivative as has already been stated is found by taking the dot product of the gradient and the vector pointing in our desired direction. The dot product possesses a very nice property that would allow us to find the direction that maximizes the directional derivative without having to consider all the possible directions. The dot product measures the similarity between two vectors. It assigns a score to how much the two vectors are travelling in the same direction. Formally, the dot product between two vectors $\vec{u}$ and $\vec{v}$ is: 
+<p>Notice that the vectors in the equation above have a magnitude or length of 1. In a sense, this ensures that we don't end up picking the wrong vector just because it has a larger magnitude than the rest and hence would maximize the dot product even though it's pointing in the wrong direction.</p>
+<p>The directional derivative as has already been stated is found by taking the dot product of the gradient and the vector pointing in our desired direction. The dot product possesses a very nice property that would allow us to find the direction that maximizes the directional derivative without having to consider all the possible directions. The dot product measures the similarity between two vectors. It assigns a score to how much the two vectors are traveling in the same direction. Formally, the dot product between two vectors $\vec{u}$ and $\vec{v}$ is: 
 
 $$\vec{u} \cdot \vec{v} = \lvert \vec{u} \rvert \lvert \vec{v} \rvert cos \theta$$
 </p>
 <p>Where $\theta$ is the angle between the two vectors.</p>
 <p><img src="/logits/images/copied_from_nb/../images/backprop/three.png" alt=""></p>
-<p>In the illustration above, when $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 1 \\ 0 \end{bmatrix}$, their dot product is 0 because there is no similarity between them, $\vec{u}$ is pointing purely in the $x$ direction (it has no $y$ component whiles $\vec{v}$ also points solely in the $y$ direction. The angle between them is $90^\circ$ (they are perpendicular) and $cos(90^\circ)=0$. When, $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, the dot product is maximized because they are pointing in the same direction. The dot product in this case is 1 because the angle between them is $0^\circ$
+<p>In the illustration above, when $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 1 \\ 0 \end{bmatrix}$, their dot product is 0 because there is no similarity between them, $\vec{u}$ is pointing purely in the $x$ direction (it has no $y$ component whiles $\vec{v}$ also points solely in the $y$ direction. The angle between them is $90^\circ$ (they are perpendicular) and $cos(90^\circ)=0$. When, $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, the dot product is maximized because they are pointing in the same direction. The dot product, in this case, is 1 because the angle between them is $0^\circ$.
 
 $$\vec{u} \cdot \vec{v} = 1 \cdot 1 \cdot cos(0^\circ) = 1$$
 </p>
@@ -361,7 +361,7 @@ $$\vec{u} \cdot \vec{v} = 1 \cdot 1 \cdot cos(0^\circ) = 1$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The magnitude of the vectors do not have an impact on the result of the dot product because both vectors have a magnitude of 1. Hence the result of the dot product using the formulation above depends on the angle between the two vectors. From the foregoing, it is not difficult to grasp the fact that we are driving at, which is that, for unit length vectors, the dot product is maximized when the two vectors are parallel, that is they point in the same direction or that the angle between them is $0^\circ$</p>
+<p>The magnitude of the vectors does not have an impact on the result of the dot product because both vectors have a magnitude of 1. Hence the result of the dot product using the formulation above depends on the angle between the two vectors. From the foregoing, it is not difficult to grasp the fact that we are driving at, which is that, for unit length vectors, the dot product is maximized when the two vectors are parallel, that is they point in the same direction or that the angle between them is $0^\circ$</p>
 
 </div>
 </div>
@@ -374,7 +374,7 @@ $$\vec{u} \cdot \vec{v} = 1 \cdot 1 \cdot cos(0^\circ) = 1$$
 $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
 </p>
 <p>The directional derivative is also a dot product and so it flows naturally from our understanding of dot products that the vector that would maximize the directional derivative and result in the greatest increase in our function is the vector that points in the same direction as the gradient which is the gradient itself. This is why the gradient is the direction of steepest ascent. Gradient descent takes a step in the opposite direction because our objective in training is to minimize, not to maximize the loss function.</p>
-<p>Hopefully you've gained some usefull insights from this post to help you solidify your understanding of the foundations of neural networks and other machine learning algorithms. The next blogpost will take a look at the chain rule which is the other major concept behind backpropagation.</p>
+<p>Hopefully, you've gained some useful insights from this post to help you solidify your understanding of the foundations of neural networks and other machine learning algorithms. The next blogpost will take a look at the chain rule which is the other major concept behind backpropagation.</p>
 
 </div>
 </div>
