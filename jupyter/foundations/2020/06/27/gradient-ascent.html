@@ -3,9 +3,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>I Finally Understood Gradient Descent: And you can too | logits</title>
+<title>I Finally Understood Backpropagation: And you can too | logits</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="I Finally Understood Gradient Descent: And you can too" />
+<meta property="og:title" content="I Finally Understood Backpropagation: And you can too" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Why the gradient is the direction of steepest ascent" />
 <meta property="og:description" content="Why the gradient is the direction of steepest ascent" />
@@ -16,12 +16,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-27T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-06-27T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html"},"description":"Why the gradient is the direction of steepest ascent","image":"https://asiedubrempong.github.io/logits/images/backprop/grad.png","@type":"BlogPosting","url":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html","headline":"I Finally Understood Gradient Descent: And you can too","dateModified":"2020-06-27T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"description":"Why the gradient is the direction of steepest ascent","mainEntityOfPage":{"@type":"WebPage","@id":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html"},"@type":"BlogPosting","url":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html","headline":"I Finally Understood Backpropagation: And you can too","dateModified":"2020-06-27T00:00:00-05:00","datePublished":"2020-06-27T00:00:00-05:00","image":"https://asiedubrempong.github.io/logits/images/backprop/grad.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/logits/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://asiedubrempong.github.io/logits/feed.xml" title="logits" /><link rel="shortcut icon" type="image/x-icon" href="/logits/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>I Finally Understood Gradient Descent: And you can too | logits</title>
+<title>I Finally Understood Backpropagation: And you can too | logits</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="I Finally Understood Gradient Descent: And you can too" />
+<meta property="og:title" content="I Finally Understood Backpropagation: And you can too" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Why the gradient is the direction of steepest ascent" />
 <meta property="og:description" content="Why the gradient is the direction of steepest ascent" />
@@ -32,7 +32,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-27T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-06-27T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html"},"description":"Why the gradient is the direction of steepest ascent","image":"https://asiedubrempong.github.io/logits/images/backprop/grad.png","@type":"BlogPosting","url":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html","headline":"I Finally Understood Gradient Descent: And you can too","dateModified":"2020-06-27T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"description":"Why the gradient is the direction of steepest ascent","mainEntityOfPage":{"@type":"WebPage","@id":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html"},"@type":"BlogPosting","url":"https://asiedubrempong.github.io/logits/jupyter/foundations/2020/06/27/gradient-ascent.html","headline":"I Finally Understood Backpropagation: And you can too","dateModified":"2020-06-27T00:00:00-05:00","datePublished":"2020-06-27T00:00:00-05:00","image":"https://asiedubrempong.github.io/logits/images/backprop/grad.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -103,13 +103,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">I Finally Understood Gradient Descent: And you can too</h1><p class="page-description">Why the gradient is the direction of steepest ascent</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-27T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">I Finally Understood Backpropagation: And you can too</h1><p class="page-description">Why the gradient is the direction of steepest ascent</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-27T00:00:00-05:00" itemprop="datePublished">
         Jun 27, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -142,13 +142,11 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Let's-begin-with-the-gradient">Let&#39;s begin with the gradient </a></li>
+<li class="toc-entry toc-h2"><a href="#Let's-begin-with-gradient-descent">Let&#39;s begin with gradient descent </a></li>
 <li class="toc-entry toc-h2"><a href="#Reviewing-gradients">Reviewing gradients </a></li>
-<li class="toc-entry toc-h2"><a href="#Directional-derivative">Directional derivative </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#Resources">Resources </a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#Directional-derivatives">Directional derivatives </a></li>
+<li class="toc-entry toc-h2"><a href="#Finding-the-direction-of-steepest-ascent">Finding the direction of steepest ascent </a></li>
+<li class="toc-entry toc-h2"><a href="#Resources">Resources </a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
@@ -168,7 +166,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The gradient descent algorithm is one of the key ingredients for the training of neural networks, but it's also probably the most difficult concept to grasp in understanding how things really work. At least in my own experience, it's been the one thing that I've struggled to gain a deep understanding of. After juggling between a plethora of materials on the subject, I got my own eureka moment and the pieces fell into place. Like me you may also be self-taught through online courses and may have done a couple of projects but you still feel that twinge of <code>half-knowledge</code>, of only vaguely understanding what is actually going on when you are training neural networks (or any other maching learning model).</p>
+<p>The backpropagation algorithm is one of the key ingredients for the training of neural networks, but it's also probably the most difficult concept to grasp in understanding how things really work. At least in my own experience, it's been the one thing that I've struggled to gain a deep understanding of. After juggling between a plethora of materials on the subject, I got my own eureka moment and the pieces fell into place. Like me you may also be self-taught through online courses and may have done a couple of projects but you still feel that twinge of <code>half-knowledge</code>, of only vaguely understanding what is actually going on when you are training neural networks (or any other maching learning model).</p>
 
 </div>
 </div>
@@ -184,8 +182,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Let's-begin-with-the-gradient">
-<a class="anchor" href="#Let's-begin-with-the-gradient" aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's begin with the gradient<a class="anchor-link" href="#Let's-begin-with-the-gradient"> </a>
+<h2 id="Let's-begin-with-gradient-descent">
+<a class="anchor" href="#Let's-begin-with-gradient-descent" aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's begin with gradient descent<a class="anchor-link" href="#Let's-begin-with-gradient-descent"> </a>
 </h2>
 </div>
 </div>
@@ -194,7 +192,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>But why? 
-Because that was the <code>most glossed over</code> bit for me. Many online courses would just tell you that gradient descent finds the <code>partial derivative</code> of the loss function with respect to the weights (ie. the gradient) and takes a step in the direction opposite to this gradient; because the <strong>gradient points in the direction of steepest ascent</strong>, taking a step in the opposite direction would mean we move in <strong>the direction of steepest descent</strong>. But they never state why, I mean the why of the why. We take a step in the direction opposite to the gradient because it points in the direction of steepest ascent but the question (for me) really is: Why is the gradient the direction of steepest ascent?</p>
+Because that was the <code>most glossed over</code> bit for me. Many online courses would just tell you that gradient descent finds the <code>partial derivative</code> of the loss function with respect to the weights (ie. the gradient) and takes a step in the direction opposite to this gradient; Because the <strong>gradient points in the direction of steepest ascent</strong>, taking a step in the opposite direction would mean we move in <strong>the direction of steepest descent</strong>. But they never state why, I mean the why of the why. We take a step in the direction opposite to the gradient because it points in the direction of steepest ascent but the question (for me) really is: Why is the gradient the direction of steepest ascent?</p>
 
 </div>
 </div>
@@ -279,8 +277,8 @@ Because that was the <code>most glossed over</code> bit for me. Many online cour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Directional-derivative">
-<a class="anchor" href="#Directional-derivative" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directional derivative<a class="anchor-link" href="#Directional-derivative"> </a>
+<h2 id="Directional-derivatives">
+<a class="anchor" href="#Directional-derivatives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directional derivatives<a class="anchor-link" href="#Directional-derivatives"> </a>
 </h2>
 </div>
 </div>
@@ -332,6 +330,15 @@ $$\nabla_\vec{w}f = 36 + 20 = 56$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-the-direction-of-steepest-ascent">
+<a class="anchor" href="#Finding-the-direction-of-steepest-ascent" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding the direction of steepest ascent<a class="anchor-link" href="#Finding-the-direction-of-steepest-ascent"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Our objective now is to find:</p>
 <p>
 $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
@@ -343,11 +350,18 @@ $$\vec{u} \cdot \vec{v} = \lvert \vec{u} \rvert \lvert \vec{v} \rvert cos \theta
 </p>
 <p>Where $\theta$ is the angle between the two vectors.</p>
 <p><img src="/logits/images/copied_from_nb/../images/backprop/three.png" alt=""></p>
-<p>In the illustration above, when $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 1 \\ 0 \end{bmatrix}$, their dot product is 0 because there is no similarity between them, $\vec{u}$ is pointing purely in the $x$ direction (it has no $y$ component whiles $\vec{v}$ also points solely in the $y$ direction. The angle between them is $90^\circ$ (they are perpendicular) and $cos(90^\circ)=0$. When, $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, the dot product is maximized because they are pointing in the same direction. The dot product in this case is 1 and the angle between them is $0^\circ$
+<p>In the illustration above, when $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 1 \\ 0 \end{bmatrix}$, their dot product is 0 because there is no similarity between them, $\vec{u}$ is pointing purely in the $x$ direction (it has no $y$ component whiles $\vec{v}$ also points solely in the $y$ direction. The angle between them is $90^\circ$ (they are perpendicular) and $cos(90^\circ)=0$. When, $\vec{u}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\vec{v}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, the dot product is maximized because they are pointing in the same direction. The dot product in this case is 1 because the angle between them is $0^\circ$
 
 $$\vec{u} \cdot \vec{v} = 1 \cdot 1 \cdot cos(0^\circ) = 1$$
+</p>
 
-Both vectors have a length of 1. From the foregoing, it is not difficult to grasp the fact that we are driving at, which is that, for unit length vectors, the dot product is maximized when the two vectors are parallel, that is they point in the same direction.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The magnitude of the vectors do not have an impact on the result of the dot product because both vectors have a magnitude of 1. Hence the result of the dot product using the formulation above depends on the angle between the two vectors. From the foregoing, it is not difficult to grasp the fact that we are driving at, which is that, for unit length vectors, the dot product is maximized when the two vectors are parallel, that is they point in the same direction or that the angle between them is $0^\circ$</p>
 
 </div>
 </div>
@@ -360,7 +374,7 @@ Both vectors have a length of 1. From the foregoing, it is not difficult to gras
 $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
 </p>
 <p>The directional derivative is also a dot product and so it flows naturally from our understanding of dot products that the vector that would maximize the directional derivative and result in the greatest increase in our function is the vector that points in the same direction as the gradient which is the gradient itself. This is why the gradient is the direction of steepest ascent. Gradient descent takes a step in the opposite direction because our objective in training is to minimize, not to maximize the loss function.</p>
-<p>Hopefully you've gained some usefull insights from this post to help you solidify your understanding of the foundations of neural networks and other machine learning algorithms.</p>
+<p>Hopefully you've gained some usefull insights from this post to help you solidify your understanding of the foundations of neural networks and other machine learning algorithms. The next blogpost will take a look at the chain rule which is the other major concept behind backpropagation.</p>
 
 </div>
 </div>
@@ -368,9 +382,9 @@ $$\max_{\lvert \vec{w} \rvert =1} \nabla f(a, b) \cdot \vec{w}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Resources">
+<h2 id="Resources">
 <a class="anchor" href="#Resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources<a class="anchor-link" href="#Resources"> </a>
-</h3>
+</h2>
 <p>Partial and Directional derivatives: <a href="https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives">Khan Academy: Multivariable calculus</a>
 <br>Dot products: <a href="https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/vector-dot-product-and-vector-length">Khan Academy: Linear Algebra</a>
 <br>Calculus: <a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">3Blue1Brown</a></p>
